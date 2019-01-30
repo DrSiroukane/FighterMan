@@ -1,0 +1,63 @@
+# Main class
+
+
+# Create Class
+
+	## Map
+		* Relations
+			- aggrigation Player
+			- aggrigation many Monster
+		(-)	- aggrigation many Arms 
+		* Methods
+			char **getMap() : retourne la matrice de map
+	        void setMap(string) : recupere le map depuis un fichier
+	        void printMap() : affichier le map
+	        void printMonstersCoordinates() : affichier les coordonee des monstres de map
+	        void setPlayerInGame(Player *) : ajouter le joueur a l interieur de map
+	        void setPlayerAction(int) : ajouter la reaction de joueur au map
+	    	void fight(int) : combat avec le monster (int)
+	    	void pickGift(int) : le joueur recupere la recompance (int) cache
+	    (-)	void gameOver() : fin de jeux si le joueur meurt
+
+	## Actor
+		* Relations
+			- composition Coordinate
+		* Methods
+	        void setHealth(int) : inserter la valeur health
+	        void setProtectionPower(int) : inserter la valeur 
+			void setCoordinates(Coordinates *) : ajouter les coordonnees de l'actor 
+	        int getHealth() : retourne la valeur de health
+			int getProtectionPower() : retourne la valeur de protection_power
+			Coordinates *getCoordinates() : retourne les coordonnees de l'actor
+
+	## Player : Actor
+		* Relations
+			- composition Coordinate
+			- aggrigation Arm
+		* Methods
+	        char getLook() : retourne le char qui present le joueur
+	        void setAction(int) : modifier les informations de joueur selon int
+	        Coordinates getFront() : retourne les coordonnees de la case en face de joueur
+	    (-)	void addArm(Arm *) : ajouter une arme
+	    (-)	void throwArm(int) : jeter une arme
+	    	void setEnergy(Arm *) : ajouter energy entre health et protection_power
+			void getShot(Arm *) : recois une frappe
+
+	## Monster : Actor
+		* Relations
+			- composition Arm
+		* Methods
+	        void setArm(Arm *) : inserter l'arme de monster
+	        void setGift(Arm *) : inserter la recompence cache de monstre
+	        Arm *getArm() : recupere l'arme de monstre
+	        Arm *getGift() : recupere la recompence
+	        void printData() : affichier les informations de monstre
+			void getShot(Arm *) : recois une frappe
+
+	## Arm : Actor
+        int getUseDistance() : returne la distance d'utilisation de l'arme {-1: bomb, 0: energy, 1>: arme avec une distance}
+        void printData() : affichier les informations de l'arme
+
+	## Helper
+
+	## Coordiantes
